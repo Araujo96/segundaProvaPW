@@ -1,10 +1,9 @@
 package com.example.filmesapp
 
 import android.os.Bundle
+import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
@@ -33,11 +32,11 @@ class HomeFragment : Fragment() {
 
         binding.recyclerView.addOnItemTouchListener(RecyclerViewClickListener(binding.recyclerView, object : RecyclerViewClickListener.OnItemClickListener{
             override fun onItemClick(view: View, position: Int) {
-                Navigation.findNavController(binding.recyclerView).navigate(R.id.action_homeFragment_to_detalhesFragment)
+                Navigation.findNavController(binding.recyclerView).navigate(HomeFragmentDirections.actionHomeFragmentToDetalhesFragment(adapter.list[position].id))
             }
 
             override fun onItemLongClick(view: View, position: Int) {
-                Navigation.findNavController(binding.recyclerView).navigate(R.id.action_homeFragment_to_alteraFragment)
+                Navigation.findNavController(binding.recyclerView).navigate(HomeFragmentDirections.actionHomeFragmentToAlteraFragment(adapter.list[position].id))
             }
         }))
 
@@ -46,5 +45,16 @@ class HomeFragment : Fragment() {
         return binding.root
     }
 
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.ajuda_menu, menu)
+    }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        if(item.itemId == R.id.opcao_menu_ajuda){
+            Toast.makeText(context, "Ajuda da tela de Home", Toast.LENGTH_SHORT).show()
+        }
+        return super.onOptionsItemSelected(item)
+    }
 }

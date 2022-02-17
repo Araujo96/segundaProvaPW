@@ -30,7 +30,7 @@
             android:ems="10"
             android:text="@={viewmodel.filme.pais}"
             android:inputType="textPersonName"
-            android:hint="Sobrenome" />
+            android:hint="Pais" />
 
         <EditText
             android:layout_width="match_parent"
@@ -38,7 +38,7 @@
             android:ems="10"
             android:text="@={viewmodel.filme.classificacao}"
             android:inputType="text"
-            android:hint="Idade" />
+            android:hint="Classificacao" />
 
         <EditText
             android:layout_width="match_parent"
@@ -46,7 +46,7 @@
             android:ems="10"
             android:text="@={viewmodel.filme.diretor}"
             android:inputType="textPersonName"
-            android:hint="Sexo" />
+            android:hint="Diretor" />
 
         <EditText
             android:layout_width="match_parent"
@@ -54,7 +54,7 @@
             android:ems="10"
             android:inputType="number"
             android:text="@={viewmodel.filme.nota+``}"
-            android:hint="Altura" />
+            android:hint="Nota" />
 
         <EditText
             android:layout_width="match_parent"
@@ -62,7 +62,7 @@
             android:ems="10"
             android:inputType="number"
             android:text="@={viewmodel.filme.ano+``}"
-            android:hint="Peso" />
+            android:hint="Ano" />
 
         <Button
             android:id="@+id/botaoAlterar"

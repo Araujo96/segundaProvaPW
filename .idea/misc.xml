@@ -10,6 +10,10 @@
         <entry key="..\:/Users/lucas/AndroidStudioProjects/FilmesApp/app/src/main/res/layout/fragment_cadastro.xml" value="0.1" />
         <entry key="..\:/Users/lucas/AndroidStudioProjects/FilmesApp/app/src/main/res/layout/fragment_detalhes.xml" value="0.20416666666666666" />
         <entry key="..\:/Users/lucas/AndroidStudioProjects/FilmesApp/app/src/main/res/layout/fragment_home.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/lucas/AndroidStudioProjects/FilmesApp/app/src/main/res/layout/fragment_sobre.xml" value="0.1" />
+        <entry key="..\:/Users/lucas/AndroidStudioProjects/FilmesApp/app/src/main/res/layout/layout_gaveta.xml" value="0.1" />
+        <entry key="..\:/Users/lucas/AndroidStudioProjects/FilmesApp/app/src/main/res/menu/ajuda_menu.xml" value="0.1" />
+        <entry key="..\:/Users/lucas/AndroidStudioProjects/FilmesApp/app/src/main/res/menu/menu_principal.xml" value="0.1" />
       </map>
     </option>
   </component>

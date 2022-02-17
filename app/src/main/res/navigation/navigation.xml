@@ -33,9 +33,21 @@
         <action
             android:id="@+id/action_alteraFragment_to_homeFragment"
             app:destination="@id/homeFragment" />
+        <argument
+            android:name="id"
+            app:argType="long" />
     </fragment>
     <fragment
         android:id="@+id/detalhesFragment"
         android:name="com.example.filmesapp.DetalhesFragment"
-        android:label="DetalhesFragment" />
+        android:label="DetalhesFragment" >
+        <argument
+            android:name="id"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/sobreFragment2"
+        android:name="com.example.filmesapp.SobreFragment"
+        android:label="fragment_sobre"
+        tools:layout="@layout/fragment_sobre" />
 </navigation>
