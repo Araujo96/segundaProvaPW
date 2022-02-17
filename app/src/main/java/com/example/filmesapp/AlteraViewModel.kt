@@ -10,6 +10,12 @@ import kotlinx.coroutines.launch
 class AlteraViewModel(application: Application, id:Long) : AndroidViewModel(application)  {
 
     lateinit var filme:LiveData<Filme>
+    private var _eventAlteraFilme = MutableLiveData<Boolean>(false)
+    val eventAlteraFilme:LiveData<Boolean>
+        get() = _eventAlteraFilme
+
+
+
 
     private val db:FilmeDatabase by lazy {
         Room.databaseBuilder(
@@ -25,10 +31,16 @@ class AlteraViewModel(application: Application, id:Long) : AndroidViewModel(appl
         }
     }
 
-    fun alteraPessoa(){
+    fun onAlteraFilmeStart(){
+
         viewModelScope.launch {
             db.filmeDao().editar(filme.value!!)
         }
+        _eventAlteraFilme.value = true
+    }
+
+    fun onAlteraFilmeCompleto(){
+        _eventAlteraFilme.value = false
     }
 
     class AlteraViewModelFactory(val application: Application,val id: Long) : ViewModelProvider.Factory{

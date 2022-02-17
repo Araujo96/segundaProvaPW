@@ -31,10 +31,15 @@ class AlteraFragment : Fragment() {
         binding.viewmodel = viewmodel
         binding.lifecycleOwner = this
 
-        binding.botaoAlterar.setOnClickListener {
-            viewmodel.alteraPessoa()
-            Navigation.findNavController(it).navigate(AlteraFragmentDirections.actionAlteraFragmentToHomeFragment())
-        }
+       viewmodel.eventAlteraFilme.observe(viewLifecycleOwner, {hasChange ->
+           if(hasChange){
+               Navigation
+                   .findNavController(requireView())
+                   .navigate(AlteraFragmentDirections.actionAlteraFragmentToHomeFragment())
+               viewmodel.onAlteraFilmeCompleto()
+           }
+
+       })
 
         setHasOptionsMenu(true)
         return binding.root

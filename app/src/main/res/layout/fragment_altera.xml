@@ -65,6 +65,7 @@
             android:hint="Ano" />
 
         <Button
+            android:onClick="@{() -> viewmodel.onAlteraFilmeStart()}"
             android:id="@+id/botaoAlterar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

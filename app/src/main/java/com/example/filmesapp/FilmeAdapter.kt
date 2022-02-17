@@ -14,6 +14,7 @@ class FilmeAdapter: RecyclerView.Adapter<FilmeAdapter.FilmeViewHolder>() {
 
     class FilmeViewHolder(itemView: View) :RecyclerView.ViewHolder(itemView){
         var nomeTextView = itemView.findViewById<TextView>(R.id.nome)
+        var anoTextView = itemView.findViewById<TextView>(R.id.ano)
     }
 
 
@@ -26,6 +27,8 @@ class FilmeAdapter: RecyclerView.Adapter<FilmeAdapter.FilmeViewHolder>() {
     override fun onBindViewHolder(holder: FilmeViewHolder, position: Int) {
         val filme = list[position]
         holder.nomeTextView.text = filme.nome
+        holder.anoTextView.text = filme.diretor
+
     }
 
 

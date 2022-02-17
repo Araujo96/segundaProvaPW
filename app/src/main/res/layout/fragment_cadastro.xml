@@ -70,6 +70,7 @@
             android:hint="ano" />
 
         <Button
+            android:onClick="@{() -> viewmodel.onCadastraFilmeStart()}"
             android:id="@+id/buttonCadastrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

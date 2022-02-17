@@ -26,10 +26,14 @@ class CadastroFragment : Fragment() {
         binding.viewmodel = viewmodel
         binding.lifecycleOwner = this
 
-        binding.buttonCadastrar.setOnClickListener {
-            viewmodel.cadastraPessoa()
-            Navigation.findNavController(it).navigate(CadastroFragmentDirections.actionCadastroFragmentToHomeFragment())
-        }
+        viewmodel.eventCadastrarFilme.observe(viewLifecycleOwner,{hasChange ->
+            if(hasChange){
+                Navigation.findNavController(requireView()).navigate(CadastroFragmentDirections.actionCadastroFragmentToHomeFragment())
+                viewmodel.CadastraFilmeComplete()
+            }
+
+
+        })
 
         setHasOptionsMenu(true)
         return binding.root

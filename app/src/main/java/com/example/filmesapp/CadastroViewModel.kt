@@ -1,11 +1,18 @@
 package com.example.filmesapp
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.room.Room
 import kotlinx.coroutines.launch
 
 class CadastroViewModel(application: Application) : AndroidViewModel(application) {
+
+    private val _eventCadastrarFilme = MutableLiveData<Boolean>(false)
+    val eventCadastrarFilme: LiveData<Boolean>
+        get() = _eventCadastrarFilme
+
 
     var filme = Filme()
 
@@ -17,9 +24,14 @@ class CadastroViewModel(application: Application) : AndroidViewModel(application
             .build()
     }
 
-    fun cadastraPessoa(){
+    fun onCadastraFilmeStart(){
         viewModelScope.launch {
             db.filmeDao().cadastrar(filme)
         }
+        _eventCadastrarFilme.value = true
     }
+    fun CadastraFilmeComplete(){
+        _eventCadastrarFilme.value = false
+    }
+
 }
