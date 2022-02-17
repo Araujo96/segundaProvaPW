@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewmodel"
+            type="com.example.filmesapp.CadastroViewModel" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".CadastroFragment">
+
+        <EditText
+            android:id="@+id/editTextNome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@={viewmodel.filme.nome}"
+            android:inputType="textPersonName"
+            android:hint="Nome" />
+
+        <EditText
+            android:id="@+id/editTextpais"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@={viewmodel.filme.pais}"
+            android:inputType="textPersonName"
+            android:hint="Pais" />
+
+        <EditText
+            android:id="@+id/editTextclassificacao"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@={viewmodel.filme.classificacao}"
+            android:inputType="text"
+            android:hint="Classificacao" />
+
+        <EditText
+            android:id="@+id/editTextdiretor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:text="@={viewmodel.filme.diretor}"
+            android:inputType="textPersonName"
+            android:hint="Diretor" />
+
+        <EditText
+            android:id="@+id/editTextnota"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:text="@={viewmodel.filme.nota+``}"
+            android:hint="Nota" />
+
+        <EditText
+            android:id="@+id/editTextano"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:text="@={viewmodel.filme.ano+``}"
+            android:hint="ano" />
+
+        <Button
+            android:id="@+id/buttonCadastrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cadastrar" />
+    </LinearLayout>
+</layout>
