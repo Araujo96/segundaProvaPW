@@ -46,8 +46,7 @@
             app:argType="long" />
     </fragment>
     <fragment
-        android:id="@+id/sobreFragment2"
-        android:name="com.example.filmesapp.SobreFragment"
-        android:label="fragment_sobre"
-        tools:layout="@layout/fragment_sobre" />
+        android:id="@+id/sobreFragment"
+        android:name="com.example.filmesapp.ui.sobre.SobreFragment"
+        android:label="SobreFragment" />
 </navigation>

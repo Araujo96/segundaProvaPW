@@ -6,6 +6,6 @@
         android:id="@+id/cadastroFragment"
         android:title="Cadastro" />
     <item
-        android:id="@+id/sobreFragment2"
+        android:id="@+id/sobreFragment"
         android:title="Sobre" />
 </menu>

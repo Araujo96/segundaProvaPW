@@ -88,13 +88,13 @@
                       </LayoutPositions>
                     </value>
                   </entry>
-                  <entry key="sobreFragment2">
+                  <entry key="sobreFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="329" />
-                            <option name="y" value="-331" />
+                            <option name="x" value="303" />
+                            <option name="y" value="-318" />
                           </Point>
                         </option>
                       </LayoutPositions>
