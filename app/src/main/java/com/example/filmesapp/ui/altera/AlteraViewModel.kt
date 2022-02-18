@@ -7,10 +7,11 @@ import androidx.lifecycle.*
 import androidx.room.Room
 import com.example.filmesapp.model.Filme
 import com.example.filmesapp.repository.AppDatabase
+import com.example.filmesapp.repository.FilmeRepository
 
 import kotlinx.coroutines.launch
 
-class AlteraViewModel(application: Application, id:Long) : AndroidViewModel(application)  {
+class AlteraViewModel(val repository: FilmeRepository, id:Long) : ViewModel()  {
 
     var filme = MutableLiveData<Filme>()
 
@@ -19,26 +20,16 @@ class AlteraViewModel(application: Application, id:Long) : AndroidViewModel(appl
         get() = _eventAlteraFilme
 
 
-
-
-    private val db: AppDatabase by lazy {
-        Room.databaseBuilder(
-            application.applicationContext,
-            AppDatabase::class.java,
-            "filme.sqlite")
-            .build()
-    }
-
     init {
         viewModelScope.launch {
-            filme.value =  db.filmeDAO().listById(id)
+            filme.value =  repository.listById(id)
         }
     }
 
     fun onAlteraFilmeStart(){
 
         viewModelScope.launch {
-            db.filmeDAO().editar(filme.value!!)
+            repository.editar(filme.value!!)
         }
         _eventAlteraFilme.value = true
     }
@@ -47,10 +38,10 @@ class AlteraViewModel(application: Application, id:Long) : AndroidViewModel(appl
         _eventAlteraFilme.value = false
     }
 
-    class AlteraViewModelFactory(val application: Application,val id: Long) : ViewModelProvider.Factory{
+    class Factory(val repository: FilmeRepository,val id: Long) : ViewModelProvider.Factory{
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(AlteraViewModel::class.java)) {
-                return AlteraViewModel(application, id) as T
+                return AlteraViewModel(repository, id) as T
             }
             throw IllegalArgumentException("Unknown ViewModel class")
         }

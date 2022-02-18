@@ -8,13 +8,15 @@ import kotlinx.coroutines.flow.Flow
 @Dao
 interface FilmeDAO {
     @Insert
-    suspend fun cadastrar(p: Filme)
+    suspend fun cadastrar(f: Filme)
 
     @Update
-    suspend fun editar(p: Filme)
+    suspend fun editar(f: Filme)
 
     @Delete
-    suspend fun excluir(p: Filme)
+    suspend fun excluir(f: Filme)
+    @Update
+    suspend fun update(f:Filme)
 
     @Query("SELECT * from Filme")
     fun buscarTodos(): Flow<List<Filme>>
