@@ -1,15 +1,17 @@
-package com.example.filmesapp
+package com.example.filmesapp.ui.detalhes
 
 import android.app.Application
 import androidx.lifecycle.*
 import androidx.room.Room
+import com.example.filmesapp.model.Filme
+import com.example.filmesapp.repository.FilmeDatabase
 import kotlinx.coroutines.launch
 
 class DetalhesViewModel(application: Application, id:Long) : AndroidViewModel(application) {
 
     lateinit var filme: LiveData<Filme>
 
-    private val db:FilmeDatabase by lazy {
+    private val db: FilmeDatabase by lazy {
         Room.databaseBuilder(
             application.applicationContext,
             FilmeDatabase::class.java,

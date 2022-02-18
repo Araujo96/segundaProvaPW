@@ -1,4 +1,4 @@
-package com.example.filmesapp
+package com.example.filmesapp.ui.altera
 
 import android.os.Bundle
 import android.view.*
@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
+import com.example.filmesapp.R
 import com.example.filmesapp.databinding.FragmentAlteraBinding
 
 
@@ -22,10 +23,11 @@ class AlteraFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
 
-        val args:AlteraFragmentArgs by navArgs()
+        val args: AlteraFragmentArgs by navArgs()
 
         binding  = DataBindingUtil.inflate(inflater, R.layout.fragment_altera, container, false)
-        val viewModelFactory = AlteraViewModel.AlteraViewModelFactory(requireActivity().application, args.id)
+        val viewModelFactory =
+            AlteraViewModel.AlteraViewModelFactory(requireActivity().application, args.id)
         viewmodel = ViewModelProvider(this, viewModelFactory).get(AlteraViewModel::class.java)
 
         binding.viewmodel = viewmodel

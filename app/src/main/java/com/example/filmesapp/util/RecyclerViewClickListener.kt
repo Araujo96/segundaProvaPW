@@ -1,11 +1,11 @@
-package com.example.filmesapp
+package com.example.filmesapp.util
 
 import android.view.GestureDetector
 import android.view.MotionEvent
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 
-class RecyclerViewClickListener(val view: RecyclerView, val listener:OnItemClickListener) : RecyclerView.OnItemTouchListener  {
+class RecyclerViewClickListener(val view: RecyclerView, val listener: OnItemClickListener) : RecyclerView.OnItemTouchListener  {
 
     var myGestureDetector: GestureDetector = GestureDetector(view.context, object : GestureDetector.SimpleOnGestureListener() {
         override fun onSingleTapUp(motionEvent: MotionEvent): Boolean {

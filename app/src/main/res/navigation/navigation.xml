@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.filmesapp.HomeFragment"
+        android:name="com.example.filmesapp.ui.home.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
@@ -19,7 +19,7 @@
     </fragment>
     <fragment
         android:id="@+id/cadastroFragment"
-        android:name="com.example.filmesapp.CadastroFragment"
+        android:name="com.example.filmesapp.ui.cadastro.CadastroFragment"
         android:label="CadastroFragment" >
         <action
             android:id="@+id/action_cadastroFragment_to_homeFragment"
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/alteraFragment"
-        android:name="com.example.filmesapp.AlteraFragment"
+        android:name="com.example.filmesapp.ui.altera.AlteraFragment"
         android:label="fragment_altera"
         tools:layout="@layout/fragment_altera" >
         <action
@@ -39,7 +39,7 @@
     </fragment>
     <fragment
         android:id="@+id/detalhesFragment"
-        android:name="com.example.filmesapp.DetalhesFragment"
+        android:name="com.example.filmesapp.ui.detalhes.DetalhesFragment"
         android:label="DetalhesFragment" >
         <argument
             android:name="id"

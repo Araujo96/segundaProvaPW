@@ -1,10 +1,12 @@
-package com.example.filmesapp
+package com.example.filmesapp.ui.cadastro
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.room.Room
+import com.example.filmesapp.model.Filme
+import com.example.filmesapp.repository.FilmeDatabase
 import kotlinx.coroutines.launch
 
 class CadastroViewModel(application: Application) : AndroidViewModel(application) {
@@ -16,7 +18,7 @@ class CadastroViewModel(application: Application) : AndroidViewModel(application
 
     var filme = Filme()
 
-    private val db:FilmeDatabase by lazy {
+    private val db: FilmeDatabase by lazy {
         Room.databaseBuilder(
             application.applicationContext,
             FilmeDatabase::class.java,

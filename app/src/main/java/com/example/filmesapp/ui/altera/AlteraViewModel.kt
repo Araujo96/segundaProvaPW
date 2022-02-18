@@ -1,10 +1,12 @@
-package com.example.filmesapp
+package com.example.filmesapp.ui.altera
 
 import androidx.lifecycle.ViewModel
 
 import android.app.Application
 import androidx.lifecycle.*
 import androidx.room.Room
+import com.example.filmesapp.model.Filme
+import com.example.filmesapp.repository.FilmeDatabase
 import kotlinx.coroutines.launch
 
 class AlteraViewModel(application: Application, id:Long) : AndroidViewModel(application)  {
@@ -17,7 +19,7 @@ class AlteraViewModel(application: Application, id:Long) : AndroidViewModel(appl
 
 
 
-    private val db:FilmeDatabase by lazy {
+    private val db: FilmeDatabase by lazy {
         Room.databaseBuilder(
             application.applicationContext,
             FilmeDatabase::class.java,

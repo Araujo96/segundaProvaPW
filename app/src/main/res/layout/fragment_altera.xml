@@ -6,7 +6,7 @@
     <data>
         <variable
             name="viewmodel"
-            type="com.example.filmesapp.AlteraViewModel" />
+            type="com.example.filmesapp.ui.altera.AlteraViewModel" />
     </data>
 
 
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        tools:context=".CadastroFragment">
+        tools:context=".ui.cadastro.CadastroFragment">
 
         <EditText
             android:layout_width="match_parent"

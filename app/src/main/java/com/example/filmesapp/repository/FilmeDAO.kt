@@ -1,14 +1,15 @@
-package com.example.filmesapp
+package com.example.filmesapp.repository
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.example.filmesapp.model.Filme
 
 @Dao
 interface FilmeDAO {
     @Insert
-    suspend fun cadastrar(p:Filme)
+    suspend fun cadastrar(p: Filme)
     @Update
-    suspend fun editar(p:Filme)
+    suspend fun editar(p: Filme)
     @Delete
     suspend fun excluir(p: Filme)
     @Query("SELECT * from Filme")

@@ -1,4 +1,4 @@
-package com.example.filmesapp
+package com.example.filmesapp.ui.cadastro
 
 import android.os.Bundle
 import android.view.*
@@ -7,12 +7,13 @@ import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import com.example.filmesapp.R
 import com.example.filmesapp.databinding.FragmentCadastroBinding
 
 class CadastroFragment : Fragment() {
 
     lateinit var binding:FragmentCadastroBinding
-    lateinit var viewmodel:CadastroViewModel
+    lateinit var viewmodel: CadastroViewModel
 
 
     override fun onCreateView(

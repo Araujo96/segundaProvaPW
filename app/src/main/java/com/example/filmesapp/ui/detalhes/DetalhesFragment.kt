@@ -1,4 +1,4 @@
-package com.example.filmesapp
+package com.example.filmesapp.ui.detalhes
 
 import android.os.Bundle
 import android.view.*
@@ -7,13 +7,14 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
+import com.example.filmesapp.R
 import com.example.filmesapp.databinding.FragmentDetalhesBinding
 
 
 class DetalhesFragment : Fragment() {
 
     lateinit var binding:FragmentDetalhesBinding
-    lateinit var viewmodel:DetalhesViewModel
+    lateinit var viewmodel: DetalhesViewModel
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -22,8 +23,11 @@ class DetalhesFragment : Fragment() {
         Toast.makeText(context, "${args.id}", Toast.LENGTH_SHORT).show()
 
         // Inflate the layout for this fragment
-        binding = DataBindingUtil.inflate(inflater,  R.layout.fragment_detalhes, container, false)
-        val viewModelFactory = DetalhesViewModel.DetalhesFragmentViewModelFactory(requireActivity().application, args.id)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detalhes, container, false)
+        val viewModelFactory = DetalhesViewModel.DetalhesFragmentViewModelFactory(
+            requireActivity().application,
+            args.id
+        )
         viewmodel = ViewModelProvider(this, viewModelFactory).get(DetalhesViewModel::class.java)
 
         binding.viewmodel = viewmodel
