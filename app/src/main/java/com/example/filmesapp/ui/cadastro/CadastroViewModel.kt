@@ -6,7 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.room.Room
 import com.example.filmesapp.model.Filme
-import com.example.filmesapp.repository.FilmeDatabase
+import com.example.filmesapp.repository.AppDatabase
+
 import kotlinx.coroutines.launch
 
 class CadastroViewModel(application: Application) : AndroidViewModel(application) {
@@ -18,17 +19,17 @@ class CadastroViewModel(application: Application) : AndroidViewModel(application
 
     var filme = Filme()
 
-    private val db: FilmeDatabase by lazy {
+    private val db: AppDatabase by lazy {
         Room.databaseBuilder(
             application.applicationContext,
-            FilmeDatabase::class.java,
+            AppDatabase::class.java,
             "filme.sqlite")
             .build()
     }
 
     fun onCadastraFilmeStart(){
         viewModelScope.launch {
-            db.filmeDao().cadastrar(filme)
+            db.filmeDAO().cadastrar(filme)
         }
         _eventCadastrarFilme.value = true
     }

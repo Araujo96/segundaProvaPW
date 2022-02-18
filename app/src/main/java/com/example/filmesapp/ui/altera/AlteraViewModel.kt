@@ -6,12 +6,14 @@ import android.app.Application
 import androidx.lifecycle.*
 import androidx.room.Room
 import com.example.filmesapp.model.Filme
-import com.example.filmesapp.repository.FilmeDatabase
+import com.example.filmesapp.repository.AppDatabase
+
 import kotlinx.coroutines.launch
 
 class AlteraViewModel(application: Application, id:Long) : AndroidViewModel(application)  {
 
-    lateinit var filme:LiveData<Filme>
+    var filme = MutableLiveData<Filme>()
+
     private var _eventAlteraFilme = MutableLiveData<Boolean>(false)
     val eventAlteraFilme:LiveData<Boolean>
         get() = _eventAlteraFilme
@@ -19,24 +21,24 @@ class AlteraViewModel(application: Application, id:Long) : AndroidViewModel(appl
 
 
 
-    private val db: FilmeDatabase by lazy {
+    private val db: AppDatabase by lazy {
         Room.databaseBuilder(
             application.applicationContext,
-            FilmeDatabase::class.java,
+            AppDatabase::class.java,
             "filme.sqlite")
             .build()
     }
 
     init {
         viewModelScope.launch {
-            filme =  db.filmeDao().buscarPorId(id)
+            filme.value =  db.filmeDAO().listById(id)
         }
     }
 
     fun onAlteraFilmeStart(){
 
         viewModelScope.launch {
-            db.filmeDao().editar(filme.value!!)
+            db.filmeDAO().editar(filme.value!!)
         }
         _eventAlteraFilme.value = true
     }

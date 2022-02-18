@@ -4,33 +4,28 @@ import android.app.Application
 import androidx.lifecycle.*
 import androidx.room.Room
 import com.example.filmesapp.model.Filme
-import com.example.filmesapp.repository.FilmeDatabase
+import com.example.filmesapp.repository.AppDatabase
+import com.example.filmesapp.repository.FilmeRepository
+
 import kotlinx.coroutines.launch
 
-class DetalhesViewModel(application: Application, id:Long) : AndroidViewModel(application) {
+class DetalhesViewModel(repository: FilmeRepository, id: Long) : ViewModel() {
 
-    lateinit var filme: LiveData<Filme>
+     var filme = MutableLiveData<Filme>()
 
-    private val db: FilmeDatabase by lazy {
-        Room.databaseBuilder(
-            application.applicationContext,
-            FilmeDatabase::class.java,
-            "filme.sqlite")
-            .build()
-    }
 
     init {
         viewModelScope.launch {
-            filme =  db.filmeDao().buscarPorId(id)
+            filme.value =  repository.listById(id)
         }
     }
 
 
 
-    class DetalhesFragmentViewModelFactory(val application: Application, val id:Long) : ViewModelProvider.Factory {
+    class Factory(val repository: FilmeRepository, val id:Long) : ViewModelProvider.Factory {
         override fun <T : ViewModel> create(modelClass: Class<T>): T {
             if (modelClass.isAssignableFrom(DetalhesViewModel::class.java)) {
-                return DetalhesViewModel(application, id) as T
+                return DetalhesViewModel(repository, id) as T
             }
             throw IllegalArgumentException("Unknown ViewModel class")
         }

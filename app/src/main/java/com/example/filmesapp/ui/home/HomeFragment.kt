@@ -8,6 +8,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
 import com.example.filmesapp.FilmeAdapter
+import com.example.filmesapp.FilmesappApplication
 import com.example.filmesapp.R
 import com.example.filmesapp.util.RecyclerViewClickListener
 import com.example.filmesapp.databinding.FragmentHomeBinding
@@ -21,7 +22,9 @@ class HomeFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
 
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
-        viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+        val factory = HomeViewModel.Factory((requireActivity().application as FilmesappApplication).filmeRepository)
+        viewModel = ViewModelProvider(this, factory).get(HomeViewModel::class.java)
+
 
         val adapter = FilmeAdapter()
 

@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.navArgs
+import com.example.filmesapp.FilmesappApplication
 import com.example.filmesapp.R
 import com.example.filmesapp.databinding.FragmentDetalhesBinding
 
@@ -24,8 +25,8 @@ class DetalhesFragment : Fragment() {
 
         // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_detalhes, container, false)
-        val viewModelFactory = DetalhesViewModel.DetalhesFragmentViewModelFactory(
-            requireActivity().application,
+        val viewModelFactory = DetalhesViewModel.Factory(
+            (requireActivity().application as FilmesappApplication).filmeRepository,
             args.id
         )
         viewmodel = ViewModelProvider(this, viewModelFactory).get(DetalhesViewModel::class.java)
